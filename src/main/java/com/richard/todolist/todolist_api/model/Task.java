@@ -1,4 +1,4 @@
-package com.richard.todolist.todolist_api.entities;
+package com.richard.todolist.todolist_api.model;
 
 import jakarta.persistence.*;
 
@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "tb_todo")
-public class Todo implements Serializable {
+public class Task implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -19,9 +19,9 @@ public class Todo implements Serializable {
     private Boolean concluded;
     private Instant createdAt;
 
-    public Todo() {}
+    public Task() {}
 
-    public Todo(UUID id, String title, String description, Boolean concluded, Instant createdAt) {
+    public Task(UUID id, String title, String description, Boolean concluded, Instant createdAt) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -72,8 +72,8 @@ public class Todo implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Todo todo = (Todo) o;
-        return Objects.equals(id, todo.id);
+        Task task = (Task) o;
+        return Objects.equals(id, task.id);
     }
 
     @Override

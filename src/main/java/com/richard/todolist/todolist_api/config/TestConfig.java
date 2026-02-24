@@ -1,7 +1,7 @@
 package com.richard.todolist.todolist_api.config;
 
-import com.richard.todolist.todolist_api.entities.Todo;
-import com.richard.todolist.todolist_api.repositories.TodoRepository;
+import com.richard.todolist.todolist_api.model.Task;
+import com.richard.todolist.todolist_api.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -15,13 +15,13 @@ import java.util.Arrays;
 public class TestConfig implements CommandLineRunner {
 
     @Autowired
-    private TodoRepository todoRepository;
+    private TaskRepository taskRepository;
 
     @Override
     public void run(String... args) throws Exception {
-        Todo entity = new Todo(null, "Title", "Description", false, Instant.parse("2019-06-20T19:53:07Z"));
-        Todo entity1 = new Todo(null, "Title 1" , "Description222", true, Instant.parse("2019-06-20T19:53:07Z"));
+        Task entity = new Task(null, "Title", "Description", false, Instant.parse("2019-06-20T19:53:07Z"));
+        Task entity1 = new Task(null, "Title 1" , "Description222", true, Instant.parse("2019-06-20T19:53:07Z"));
 
-        todoRepository.saveAll(Arrays.asList(entity,entity1));
+        taskRepository.saveAll(Arrays.asList(entity,entity1));
     }
 }
