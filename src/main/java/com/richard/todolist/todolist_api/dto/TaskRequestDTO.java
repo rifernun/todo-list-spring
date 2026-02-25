@@ -19,8 +19,6 @@ public class TaskRequestDTO {
 
     private Boolean concluded;
 
-    @PastOrPresent
-    private Instant createdAt;
 
     public String getTitle() {
         return title;
@@ -28,11 +26,10 @@ public class TaskRequestDTO {
 
     public TaskRequestDTO(){}
 
-    public TaskRequestDTO(String title, String description, Boolean concluded, Instant createdAt) {
+    public TaskRequestDTO(String title, String description, Boolean concluded) {
         this.title = title;
         this.description = description;
         this.concluded = concluded;
-        this.createdAt = createdAt;
     }
 
     public void setTitle(String title) {
@@ -55,11 +52,4 @@ public class TaskRequestDTO {
         this.concluded = concluded;
     }
 
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
 }
